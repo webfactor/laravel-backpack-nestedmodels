@@ -1,0 +1,55 @@
+{
+    "name": "webfactor/laravel-backpack-nestedmodels",
+    "type": "library",
+    "description": "Intuitively create model trees with Laravel Backpack CRUD",
+    "keywords": [
+        "webfactor",
+        "laravel",
+        "backpack",
+        "nested set",
+        "eloquent",
+        "models",
+        "model tree"
+    ],
+    "homepage": "https://github.com/webfactor/laravel-backpack-nestedmodels",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oliver Ziegler",
+            "email": "oliver.ziegler@webfactor.de",
+            "homepage": "https://webfactor.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "backpack/crud": "^3.3.0",
+        "webfactor/laravel-nestedset": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~6.0",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webfactor\\Laravel\\Backpack\\NestedModels\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webfactor\\Laravel\\Backpack\\NestedModels\\Tests": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
