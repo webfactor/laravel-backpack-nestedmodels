@@ -24,7 +24,7 @@ If you want to easily and intuitively manage your nested models with Backpack CR
 * Create your models migration. You can use the macro `$table->tree()` to get all necessary columns to work with [kalnoy/laravel-nestedset][link-nestedset] and this package.
 * Create your BackpackCRUD controllers and models as documented in [backpack/CRUD][link-backpack-crud]
  In most cases this is just running `php artisan backpack:crud` after creating the model migration.
-* Be sure your model uses `NodeTrait` from [kalnoy/laravel-nestedset][link-nestedset] (please check the documentation for requirements and setup)
+* Be sure your model uses `NestedModelTrait`
 * Let your CrudController extend `Webfactor\Laravel\Backpack\NestedModels\Controllers\NestedModelsCrudController` instead of BaseCrudController
 * Call `$this->treeSetup()` in your `setup` function **after** setting the crud model.
 
