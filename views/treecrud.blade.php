@@ -25,11 +25,7 @@
             <!-- Default box -->
             <div class="box box-default">
                 <div class="box-header {{ $crud->hasAccess('create')?'with-border':'' }}">
-                    <div class="box-title"></div>
-                    <a href="{{ url($crud->route.'/create') }}" class="btn btn-primary ladda-button" data-style="zoom-in">
-                        <span class="ladda-label"><i class="fa fa-plus"></i> Neue Überschrift</span>
-                    </a>
-                    {{--@include('crud::inc.button_stack', ['stack' => 'top'])--}}
+                    @include('crud::inc.button_stack', ['stack' => 'top'])
                     <button class="pull-right btn btn-sm btn-default" ng-click="collapseAll()">
                         <i class="fa fa-bars"></i> Alles einklappen
                     </button>
@@ -42,27 +38,17 @@
                                                     create: {{ $crud->hasAccess('create') ? 'true' : 'false' }},
                                                     update: {{ $crud->hasAccess('update') ? 'true' : 'false' }},
                                                     delete: {{ $crud->hasAccess('delete') ? 'true' : 'false' }},
-                                                    reorder: {{ $crud->hasAccess('reorder') ? 'true' : 'false' }},
-                                                    publish: {{ $crud->hasAccess('publish') ? 'true' : 'false' }}
+                                                    reorder: {{ $crud->hasAccess('reorder') ? 'true' : 'false' }}
                         }
 ">
-
-                    <div ui-tree="treeOptions" id="tree-root" data-nodrop-enabled="!permissions.reorder" ng-if="list.length > 0">
-                        <ol ui-tree-nodes data-expand-on-hover="true" ng-model="list">
-                            <li ng-repeat="node in list" ui-tree-node ng-include="'nodes_renderer.html'"></li>
-                        </ol>
-                    </div>
-                    <div class="alert alert-info" ng-if="list.length == 0">
-                        Es wurden noch keine Module angelegt.
-                    </div>
+                    <div ng-include="'tree.html'"></div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>
 
+        @include('nestedmodels::tree')
         @include('nestedmodels::node')
-
         @include('nestedmodels::modal')
-
         @include('nestedmodels::preview')
     </div>
 @endsection
