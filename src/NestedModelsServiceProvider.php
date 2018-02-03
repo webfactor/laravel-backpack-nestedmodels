@@ -15,7 +15,13 @@ class NestedModelsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // LOAD THE VIEWS
+        $this->loadViewsFrom(resource_path('views/vendor/webfactor/nestedmodels'), 'nestedmodels');
+        $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'nestedmodels');
+
         $this->macros();
+
+        $this->publish();
     }
 
     /**
@@ -26,6 +32,13 @@ class NestedModelsServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    public function publish()
+    {
+        $this->publishes([__DIR__.'/../views' => resource_path('views/vendor/webfactor/nestedmodels')], 'views');
+
+        $this->publishes([__DIR__.'/../public' => public_path('vendor/webfactor')], 'public');
     }
 
 
