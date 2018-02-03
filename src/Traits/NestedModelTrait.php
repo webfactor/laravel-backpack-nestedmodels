@@ -3,7 +3,6 @@
 
 namespace Webfactor\Laravel\Backpack\NestedModels\Traits;
 
-
 use Kalnoy\Nestedset\Collection;
 use Kalnoy\Nestedset\NodeTrait;
 

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class NestedModelsCrudController extends CrudController
 {
-
     public function setup()
     {
         parent::setup();
@@ -106,7 +105,5 @@ class NestedModelsCrudController extends CrudController
         $this->crud->model::rebuildTree($request->all());
 
         return (string) true;
-
     }
-
 }
