@@ -24,7 +24,7 @@
         };
 
         $scope.canDropInto = function (node) {
-            return node.type === 'category' || node.type === 'root' || node.type === null
+            return true // node.type === 'category' || node.type === 'root' || node.type === null
         };
 
         $scope.toggleTree = function (event, scope) {

@@ -1,4 +1,4 @@
-@extends('backpack_ajax.modal_layout')
+@extends('nestedmodels::ajax.modal')
 
 @section('header')
     <h3 class="box-title">{{ trans('backpack::crud.add_a_new') }} {{ $crud->entity_name }}</h3>
@@ -11,16 +11,16 @@
 
         <!-- load the view from the application if it exists, otherwise load the one in the package -->
             @if(view()->exists('vendor.backpack.crud.form_content'))
-                @include('vendor.backpack.crud.form_content', ['fields' => $crud->getFields('create')])
+                @include('vendor.backpack.crud.form_content', ['fields' => $crud->getFields('create'), 'action' => 'create'])
             @else
-                @include('crud::form_content', ['fields' => $crud->getFields('create')])
+                @include('crud::form_content', ['fields' => $crud->getFields('create'), 'action' => 'create'])
             @endif
         </div>
     </div>
 @endsection
 
 @section('footer')
-    @include('backpack_ajax.inc.form_save_buttons')
+    @include('nestedmodels::ajax.inc.form_save_buttons')
 @endsection
 
 @push('crud_fields_scripts')
