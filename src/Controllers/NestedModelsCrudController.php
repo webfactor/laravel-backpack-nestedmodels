@@ -8,10 +8,8 @@ use Illuminate\Http\Request;
 
 class NestedModelsCrudController extends CrudController
 {
-    public function setup()
+    public function treeSetup()
     {
-        parent::setup();
-
         $this->crud->setListView('nestedmodels::treecrud');
         $this->crud->orderBy('lft');
 

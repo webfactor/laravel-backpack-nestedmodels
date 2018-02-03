@@ -22,6 +22,16 @@ class NestedModelsServiceProvider extends ServiceProvider
         $this->macros();
 
         $this->publish();
+
+        // AUTO PUBLISH
+        if (\App::environment('local')) {
+            if ($this->shouldAutoPublishPublic()) {
+                \Artisan::call('vendor:publish', [
+                    '--provider' => 'Backpack\CRUD\CrudServiceProvider',
+                    '--tag' => 'public',
+                ]);
+            }
+        }
     }
 
     /**
@@ -38,7 +48,7 @@ class NestedModelsServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__.'/../views' => resource_path('views/vendor/webfactor/nestedmodels')], 'views');
 
-        $this->publishes([__DIR__.'/../public' => public_path('vendor/webfactor')], 'public');
+        $this->publishes([__DIR__.'/../public' => public_path('vendor/webfactor/nestedmodels')], 'public');
     }
 
 
@@ -53,9 +63,22 @@ class NestedModelsServiceProvider extends ServiceProvider
             $this->foreign('parent_id')->references('id')->on($this->table)
                 ->onUpdate('cascade')->onDelete('cascade');
         });
+    }
 
-//        Router::macro('tree', function($uri, $action) {
-//            //TODO
-//        });
+    /**
+     * Checks to see if we should automatically publish
+     * vendor files from the public tag.
+     *
+     * @return bool
+     */
+    private function shouldAutoPublishPublic()
+    {
+        $crudPubPath = public_path('vendor/webfactor/nestedmodels');
+
+        if (! is_dir($crudPubPath)) {
+            return true;
+        }
+
+        return false;
     }
 }

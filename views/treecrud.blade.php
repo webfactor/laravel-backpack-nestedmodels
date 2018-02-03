@@ -54,7 +54,7 @@
 @endsection
 
 @section('after_styles')
-    <link rel="stylesheet" href="{{ asset('vendor/webfactor/angular-ui-tree/dist/angular-ui-tree.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/webfactor/nestedmodels/angular-ui-tree/dist/angular-ui-tree.min.css') }}">
     @include('nestedmodels::inc.tree_style')
     @include('nestedmodels::inc.modal_style')
 @endsection
@@ -62,7 +62,7 @@
 @section('after_scripts')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-    <script type="text/javascript" src="{{ asset('vendor/webfactor/angular-ui-tree/dist/angular-ui-tree.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/webfactor/nestedmodels/angular-ui-tree/dist/angular-ui-tree.js') }}"></script>
 
     <!-- TREE SCRIPT -->
     @include('nestedmodels::inc.tree_script')
