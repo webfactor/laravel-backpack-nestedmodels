@@ -75,10 +75,6 @@ class NestedModelsServiceProvider extends ServiceProvider
     {
         $crudPubPath = public_path('vendor/webfactor/nestedmodels');
 
-        if (! is_dir($crudPubPath)) {
-            return true;
-        }
-
-        return false;
+        return ! is_dir($crudPubPath);
     }
 }
