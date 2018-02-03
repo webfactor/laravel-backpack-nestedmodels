@@ -54,8 +54,8 @@ class NestedModelsServiceProvider extends ServiceProvider
                 ->onUpdate('cascade')->onDelete('cascade');
         });
 
-        Router::macro('tree', function($uri, $action) {
-            //TODO
-        });
+//        Router::macro('tree', function($uri, $action) {
+//            //TODO
+//        });
     }
 }

@@ -157,7 +157,7 @@
         }
 
         function dropped(e) {
-            $http.post('{{$crud->route}}/reorder', $scope.list)
+            $http.post('{{ url($crud->route) }}/reorder', $scope.list)
                 .then(function (response) {
                     new PNotify({
                         title: "{{ trans('backpack::crud.reorder_success_title') }}",
@@ -192,7 +192,7 @@
 
         console.log(nodeScope.node);
 
-        $http.get('{{ $crud->route }}/create?type=' + type + '&parent=' + parent).then(function (response) {
+        $http.get('{{url( $crud->route )}}/create?type=' + type + '&parent=' + parent).then(function (response) {
             $scope.data = response.data;
         });
 
@@ -212,7 +212,7 @@
             var formData = new FormData(form[0]);
 
             $.ajax({
-                url: '{{ $crud->route }}',
+                url: '{{ url($crud->route)}}',
                 type: 'POST',
                 data: formData,
                 processData: false,

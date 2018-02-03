@@ -59,17 +59,17 @@
             </div><!-- /.box -->
         </div>
 
-        @include('components.modules.inc.node')
+        @include('nestedmodels::inc.node')
 
-        @include('components.modules.inc.modal')
+        @include('nestedmodels::inc.modal')
 
-        @include('components.modules.inc.preview')
+        @include('nestedmodels::inc.preview')
     </div>
 @endsection
 
 @section('after_styles')
     <link rel="stylesheet" href="{{ asset('vendor/webfactor/angular-ui-tree/dist/angular-ui-tree.min.css') }}">
-    @include('components.modules.inc.tree_style')
+    @include('nestedmodels::inc.tree_style')
 
     <style>
         .modal.new-child-modal{
@@ -95,5 +95,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="{{ asset('vendor/webfactor/angular-ui-tree/dist/angular-ui-tree.js') }}"></script>
 
-    @include('components.modules.inc.tree_script')
+    <!-- TREE SCRIPT -->
+    @include('nestedmodels::inc.tree_script')
 @endsection

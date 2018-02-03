@@ -15,6 +15,8 @@ class NestedModelsCrudController extends CrudController
 
         $this->crud->setListView('nestedmodels::treecrud');
         $this->crud->orderBy('lft');
+
+        $this->crud->allowAccess('reorder');
     }
 
     public function index()
@@ -32,8 +34,8 @@ class NestedModelsCrudController extends CrudController
 
     public function create()
     {
-        $request = Request::instance();
-        $this->addFieldsForType($request->get('type'));
+        $request = \Request::instance();
+
         if ($parent = $request->get('parent')) {
             $this->crud->addField([
                 'name'  => 'parent_id',
@@ -63,7 +65,7 @@ class NestedModelsCrudController extends CrudController
         return view('nestedmodels::ajax.create', $this->data);
     }
 
-    public function store(StoreRequest $request)
+    public function storeCrud(StoreRequest $request = null)
     {
         if ($request->wantsJson()) {
             return $this->ajaxStore($request);
@@ -94,6 +96,17 @@ class NestedModelsCrudController extends CrudController
 
         // insert item in the db
         return $this->crud->create($request->except(['save_action', '_token', '_method']));
+    }
+
+    public function saveReorder()
+    {
+        $this->crud->hasAccess('reorder');
+        $request = \Request::instance();
+
+        $this->crud->model::rebuildTree($request->all());
+
+        return (string) true;
+
     }
 
 }
