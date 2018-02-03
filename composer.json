@@ -23,7 +23,7 @@
     ],
     "require": {
         "backpack/crud": "^3.3.0",
-        "webfactor/laravel-nestedset": "dev-master"
+        "kalnoy/nestedset": "^4.3"
     },
     "require-dev": {
         "phpunit/phpunit" : "~6.0",
