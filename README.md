@@ -1,3 +1,5 @@
+> Attention: This Package is for Laravel Backpack v3 only. There are no plans to make it compatible with v4.
+
 # LaravelBackpackNestedmodels
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
